@@ -2,6 +2,10 @@ from os import environ
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, ChatPermissions
 from pymongo import MongoClient
+from dotenv import load_dotenv
+
+load_dotenv("stack.env")
+
 
 # MongoDB connection
 mongo_client = MongoClient(environ["MONGODB_URI"])
