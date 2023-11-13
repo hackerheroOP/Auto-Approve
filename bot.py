@@ -37,8 +37,8 @@ async def start(client: bot, message: Message):
     approvedbot = await client.get_me()
     button = [
         [InlineKeyboardButton("➕️ Add Me To Your Chat ➕️", url=f"http://t.me/{approvedbot.username}?startgroup=botstart")],
-        [InlineKeyboardButton("More about the Creator 👨‍💻", url="https://t.me/soherusan")],
-        [InlineKeyboardButton('Updates', url='https://t.me/HuntersOrgUpdates'), InlineKeyboardButton('Support Group', url='https://t.me/HuntersOrgSupport')]
+        [InlineKeyboardButton("More about the Creator 👨‍💻", url="https://t.me/pro_morningstar")],
+        [InlineKeyboardButton('Updates', url='https://t.me/Movies_Unloaded_Network'), InlineKeyboardButton('Support Group', url='https://t.me/HuntersOrgSupport')]
     ]
     await client.send_message(chat_id=message.chat.id, text=f"**Hello {message.from_user.mention}!\n\nI am the Auto Approver Join Request Bot. \nJust [Add Me To Your Group Channel](http://t.me/{approvedbot.username}?startgroup=botstart) to get started.**", reply_markup=InlineKeyboardMarkup(button), disable_web_page_preview=True)
 
@@ -48,7 +48,7 @@ async def autoapprove(client: bot, message: ChatJoinRequest):
     user = message.from_user
     print(f"{user.first_name} in {chat.title} Joined 🤝")
     await client.approve_chat_join_request(chat_id=chat.id, user_id=user.id)
-    await client.send_message(chat_id=user.id, text=f"Greetings, {user.mention}!\n\nWe are delighted to inform you that your request to join {chat.title} has been approved!", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Bot Support', url="https://t.me/HuntersOrgSupport"), InlineKeyboardButton('Bot Updates', url='https://t.me/HuntersOrgUpdates')], [InlineKeyboardButton('Bot Dev', url='https://t.me/soherusan')]]))
+    await client.send_message(chat_id=user.id, text=f"Greetings, {user.mention}!\n\nWe are delighted to inform you that your request to join {chat.title} has been approved!", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Bot Support', url="https://t.me/Movies_Request_02"), InlineKeyboardButton('Bot Updates', url='https://t.me/Movies_Unloaded_Network')], [InlineKeyboardButton('Bot Dev', url='https://t.me/pro_morningstar')]]))
     users_collection.update_one(
         {"user_id": user.id},
         {"$set": {"user_id": user.id, "role": "user"}},
