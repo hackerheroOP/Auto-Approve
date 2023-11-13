@@ -2,3 +2,4 @@ pyrogram
 dnspython
 python-dotenv
 pymongo
+TgCrypto
